@@ -1,0 +1,299 @@
+/* Reset básico e fontes */
+body {
+    margin: 0;
+    font-family: 'Comic Neue', cursive; /* Fonte mais "engraçadinha" */
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Um gradiente de cores vibrantes */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita scroll horizontal indesejado */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box; /* Inclui padding e borda no tamanho do elemento */
+}
+
+/* Container principal */
+.container {
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para o conteúdo */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 800px; /* Limita a largura máxima para desktops */
+    width: 100%; /* Ocupa toda a largura disponível em telas menores */
+    position: relative;
+    animation: fadeIn 2s ease-in-out;
+    box-sizing: border-box; /* Garante que o padding não adicione largura extra */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Títulos */
+h1 {
+    font-family: 'Permanent Marker', cursive; /* Fonte de "título engraçado" */
+    font-size: 3em; /* Base para desktop */
+    color: #ffd700; /* Dourado chamativo */
+    margin-bottom: 25px;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+    word-wrap: break-word; /* Garante que títulos longos quebrem a linha */
+}
+
+h2 { /* Estilo para o novo título das fotos */
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.2em; /* Base para desktop */
+    color: #90ee90; /* Verde claro */
+    margin-top: 40px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+    word-wrap: break-word;
+}
+
+/* GIF do coração */
+.heart-gif {
+    max-width: 150px; /* Limita o tamanho máximo */
+    height: auto; /* Mantém a proporção */
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite alternate; /* Animação de pulsação */
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* Parágrafos de mensagem */
+p.message {
+    font-size: 1.2em; /* Base para desktop */
+    line-height: 1.6;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+}
+
+p.message.highlight {
+    font-size: 1.4em; /* Base para desktop */
+    font-weight: bold;
+    color: #90ee90; /* Verde claro para destacar */
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Contador */
+.countdown {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 4em; /* Base para desktop */
+    color: #ff4500; /* Laranja avermelhado vibrante */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.4);
+    animation: bounceIn 1s ease-out;
+    word-wrap: break-word;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.1); opacity: 0; }
+    60% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+p.final-message {
+    font-size: 1.3em; /* Base para desktop */
+    font-weight: bold;
+    color: #add8e6; /* Azul claro */
+    margin-top: 25px;
+}
+
+/* Galeria de fotos espalhadas */
+.photo-gallery {
+    position: relative; /* FUNDAMENTAL: Para que as fotos absolutas se posicionem dentro dela */
+    height: 400px; /* Altura fixa para a galeria para acomodar as fotos espalhadas. Ajuste se precisar. */
+    margin-top: 50px; /* Mais espaço acima */
+    margin-bottom: 50px; /* Mais espaço abaixo */
+}
+
+.gallery-photo {
+    position: absolute; /* Agora a foto se posiciona de forma absoluta */
+    width: 200px; /* Tamanho ligeiramente menor para encaixar melhor */
+    height: 160px;
+    object-fit: cover; /* Recorta a imagem para preencher o espaço sem distorcer */
+    border: 5px solid #ffd700; /* Borda dourada chamativa */
+    border-radius: 15px; /* Cantos arredondados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra para profundidade */
+    transition: transform 0.3s ease, border-color 0.3s ease, top 0.5s ease, left 0.5s ease; /* Adicionado transição para top/left */
+    cursor: pointer; /* Indica que é clicável (se for adicionar lightbox depois) */
+    z-index: 1; /* Garante que as fotos fiquem acima de outros elementos se sobrepuserem */
+}
+
+.gallery-photo:hover {
+    transform: scale(1.08) rotate(0deg); /* Volta para 0 rotação no hover, destaca */
+    border-color: #ff4500; /* Muda a cor da borda ao passar o mouse */
+    z-index: 10; /* Traz a foto clicada para frente */
+}
+
+/* Posicionamento e rotação individual de cada foto */
+.photo-gallery img:nth-child(1) { /* Primeira foto */
+    top: 20px;
+    left: 10%;
+    transform: rotate(-8deg); /* Rotação para a esquerda */
+}
+
+.photo-gallery img:nth-child(2) { /* Segunda foto */
+    top: 100px;
+    right: 15%;
+    transform: rotate(12deg); /* Rotação para a direita */
+}
+
+.photo-gallery img:nth-child(3) { /* Terceira foto */
+    bottom: 30px;
+    left: 30%;
+    transform: rotate(0deg); /* Sem rotação, mas posicionada de forma diferente */
+}
+
+/* Botão do Magal */
+.magal-button {
+    background-color: #e63946; /* Vermelho vibrante */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5em; /* Base para desktop */
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: tada 1.5s infinite; /* Animação de "tada" para o botão */
+    max-width: 90%; /* Garante que o botão não ultrapasse a largura do container */
+    box-sizing: border-box;
+}
+
+.magal-button:hover {
+    background-color: #c42c38;
+    transform: scale(1.05);
+}
+
+@keyframes tada {
+    0% { transform: scale(1); }
+    10%, 20% { transform: scale(0.9) rotate(-3deg); }
+    30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+    40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+    100% { transform: scale(1); }
+}
+
+/* Confetti effect */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ffd700; /* Cor do confetti */
+    border-radius: 50%;
+    opacity: 0;
+    animation: fall 3s ease-out forwards;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotateZ(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotateZ(720deg); opacity: 0; }
+}
+
+/* Media Queries para Responsividade */
+
+/* Para telas menores que 768px (tablets em modo retrato e celulares grandes) */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px; /* Reduz padding em telas menores */
+    }
+    h1 {
+        font-size: 2.5em; /* Ajusta o tamanho da fonte */
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .countdown {
+        font-size: 3.5em;
+    }
+    p.message, p.message.highlight, p.final-message {
+        font-size: 1.1em; /* Ajusta o tamanho da fonte dos parágrafos */
+    }
+    .photo-gallery {
+        height: 350px; /* Ajusta a altura da galeria */
+    }
+    .gallery-photo {
+        width: 160px; /* Reduz o tamanho das fotos */
+        height: 130px;
+    }
+    .photo-gallery img:nth-child(1) {
+        top: 15px;
+        left: 5%;
+        transform: rotate(-10deg);
+    }
+    .photo-gallery img:nth-child(2) {
+        top: 80px;
+        right: 5%;
+        transform: rotate(15deg);
+    }
+    .photo-gallery img:nth-child(3) {
+        bottom: 20px;
+        left: 20%;
+        transform: rotate(0deg);
+    }
+    .magal-button {
+        font-size: 1.3em;
+        padding: 12px 25px;
+    }
+}
+
+/* Para telas menores que 480px (celulares em modo retrato) */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 15px; /* Mais redução de padding */
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .heart-gif {
+        max-width: 100px; /* Reduz ainda mais o coração */
+    }
+    .countdown {
+        font-size: 2.8em;
+    }
+    p.message, p.message.highlight, p.final-message {
+        font-size: 1em;
+    }
+    .photo-gallery {
+        height: 500px; /* Aumenta a altura para que as fotos não se amontoem */
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .gallery-photo {
+        width: 150px; /* Tamanho menor para celular */
+        height: 120px;
+    }
+    .photo-gallery img:nth-child(1) {
+        top: 10px;
+        left: 10%;
+        transform: rotate(-12deg);
+    }
+    .photo-gallery img:nth-child(2) {
+        top: 150px; /* Posiciona mais para baixo */
+        right: 10%;
+        transform: rotate(8deg);
+    }
+    .photo-gallery img:nth-child(3) {
+        top: 290px; /* Posiciona mais para baixo ainda */
+        left: 5%;
+        transform: rotate(-5deg);
+    }
+    .magal-button {
+        font-size: 1.1em;
+        padding: 10px 20px;
+    }
+}
