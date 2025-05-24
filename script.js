@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     magalAudio.play()
         .then(() => {
             // Se o autoplay funcionar, muda o texto do botão e dispara o confetti
-            playMagalButton.textContent = '🔊 Magal está no ar! 🎶';
+            playMagalButton.textContent = '🔊 O Amor está no ar! 🎶';
             triggerConfetti(); 
         })
         .catch(error => {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         } else {
             magalAudio.pause();
-            playMagalButton.textContent = '💥 Aperte aqui para o Magal invadir! 💥';
+            playMagalButton.textContent = '💥 Aperte aqui! 💥';
         }
     });
 
